@@ -1,0 +1,50 @@
+{% include "header.html" %}
+
+    <!-- Header -->
+    <header>
+        <h2>Calculator</h2>
+    </header>
+
+    <!-- Form Section -->
+    {% comment %} <div class="form-container">
+        <form action="/submit" method="get",action="{% url "calculate" %}">
+            <input type="text" name="n1" placeholder="Enter your n1">
+            <input type="text" name="n2" placeholder="Enter your n2">
+            <button type="submit">Submit</button>
+            <input type="text" value="{{output}}">
+        </form>
+    </div> {% endcomment %}
+   
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <label>Value 1</label>
+                <input type="text" name="num1" value="{{n1}}">
+                <br>
+                <label>Select the operator</label>
+                <br>
+                <select name="option">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <br>
+                <label>Value 2</label>
+                <input type="text" name="num2" value="{{n2}}">
+                <br><br>
+                <button type="submit">Submit</button>
+                <br>
+                <label>Output</label> 
+                <input type="text" value="{{ans}}">
+        </form>
+    </div>
+
+<br><br>
+
+    
+    <!-- Footer -->
+{% include "footer.html" %}
+
+</body>
+</html>
